@@ -20,5 +20,25 @@
       "version": "detect"
     }
   },
-  "rules": {}
+  "rules": {
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "no-mixed-operators": "off",
+    "array-callback-return": "off",
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": true
+        },
+        "AssignmentExpression": {
+          "array": true,
+          "object": false
+        }
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ]
+  }
 }
