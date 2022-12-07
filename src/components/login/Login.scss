@@ -1,0 +1,10 @@
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  .image-wrapper {
+    flex: 0 1 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.2)),
+      url('/public/login-bg.jpg') no-repeat;
+    background-size: cover;
+  }
+}
