@@ -5,7 +5,8 @@ import {
   FormControlLabel,
   IconButton,
   InputAdornment,
-  TextField
+  TextField,
+  Typography
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { motion } from 'framer-motion';
@@ -69,7 +70,18 @@ const LoginForm = () => {
 
           <Box component={motion.div} initial={{ opacity: 0, y: 20 }} animate={animate}>
             <Box sx={{ my: '1.6rem' }}>
-              <FormControlLabel control={<Checkbox />} label='Remember me' />
+              <FormControlLabel
+                control={<Checkbox />}
+                label=''
+                // color={'text.secondary'}
+              />
+              <Typography
+                color={'text.secondary'}
+                sx={{ marginLeft: '-1.5rem', fontSize: '1.5rem' }}
+                component={'span'}
+              >
+                Remember me
+              </Typography>
             </Box>
             <LoadingButton fullWidth size='large' type='submit' variant='contained'>
               Login

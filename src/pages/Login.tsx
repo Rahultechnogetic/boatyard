@@ -42,7 +42,12 @@ const Login = () => {
             sx={{ mt: 3 }}
           >
             Don’t have an account?{' '}
-            <Typography variant='subtitle2' color={'secondary'} sx={{ my: '8px', fontWeight: 600 }}>
+            <Typography
+              variant='subtitle2'
+              component={'span'}
+              color={'secondary'}
+              sx={{ mx: '1rem', fontWeight: 600 }}
+            >
               Sign up
             </Typography>
           </Typography>
