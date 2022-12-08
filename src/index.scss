@@ -10,11 +10,11 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: 'Public Sans', sans-serif;
 }
 
 html {
   font-size: 62.5%;
-  font-family: 'Poppins';
   body {
     font-size: 1.6rem !important;
     button {
@@ -24,7 +24,9 @@ html {
 }
 
 // color palletes used in whole project
-$primary: '#30aoeo';
-$secondary: '#006bb90';
-$tertiary: '#34bc6b';
-$light: '#3a7d6e1';
+$primary: '#00AB55';
+$secondary: '#3366FF';
+$error: '#FF5630';
+$warning: '#FFAB00';
+$info: '#00B8D9';
+$success: '#36B37E';

@@ -2,8 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import { theme } from './theme';
-// import { StyledButton } from './styled/components/common';
-import Login from './components/login/Login';
+import Login from './pages/Login';
 
 const App = () => {
   return (
