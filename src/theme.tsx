@@ -3,11 +3,13 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#00AB55'
+      main: '#1E88E5',
+      light: '#E3F2FD',
+      dark: '#737373'
     },
     secondary: {
-      main: '#3366FF',
-      light: '#637381'
+      main: '#673AB7',
+      light: '#EDE7F6'
     },
     error: {
       main: '#FF5630'
@@ -24,6 +26,7 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: ['Public Sans', 'Poppins'].join(','),
-    fontSize: 25
+    // Tell MUI what's the font-size on the html element is.
+    htmlFontSize: 10
   }
 });

@@ -1,6 +1,14 @@
+// color palletes used in whole project
+$primary: '#1E88E5';
+$primary-light: '#E3F2FD';
+$secondary: '#673AB7';
+$secondary-light: '#EDE7F6';
+$error: '#FF5630';
+$warning: '#FFAB00';
+$info: '#00B8D9';
+$success: '#36B37E';
+
 :root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -15,18 +23,9 @@
 
 html {
   font-size: 62.5%;
-  body {
-    font-size: 1.6rem !important;
-    button {
-      font-size: 1.6rem;
-    }
-  }
 }
 
-// color palletes used in whole project
-$primary: '#00AB55';
-$secondary: '#3366FF';
-$error: '#FF5630';
-$warning: '#FFAB00';
-$info: '#00B8D9';
-$success: '#36B37E';
+body {
+  font-size: 1.6rem !important;
+  background: #f9fafc;
+}
