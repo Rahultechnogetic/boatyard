@@ -6,11 +6,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, Stack } from '@mui/material';
+import {
+  Box,
+  Button,
+  Stack,
+  TableFooter,
+  TablePagination,
+  TextField,
+  Typography
+} from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Pagination from '@mui/material/Pagination';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import { Sort } from '@material-ui/icons';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
   return { name, calories, fat, carbs, protein };
@@ -21,49 +32,151 @@ const rows = [
   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
   createData('Eclair', 262, 16.0, 24, 6.0),
   createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
   createData('Gingerbread', 356, 16.0, 49, 3.9)
 ];
 
+const TableHeadCell = styled(TableCell)(() => ({
+  color: '#fff'
+}));
 const OwnerManagement = () => {
+  // const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
   return (
-    <Box sx={{ bgcolor: '#ffffff', borderRadius: '.8rem', padding: '2rem' }}>
-      <Stack className='filter-container'>
-        <Box>
-          <InputBase></InputBase>
-        </Box>
-        <Box></Box>
-      </Stack>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align='right'>Calories</TableCell>
-              <TableCell align='right'>Fat&nbsp;(g)</TableCell>
-              <TableCell align='right'>Carbs&nbsp;(g)</TableCell>
-              <TableCell align='right'>Protein&nbsp;(g)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <TableCell component='th' scope='row'>
-                  {row.name}
-                </TableCell>
-                <TableCell align='right'>{row.calories}</TableCell>
-                <TableCell align='right'>{row.fat}</TableCell>
-                <TableCell align='right'>{row.carbs}</TableCell>
-                <TableCell align='right'>{row.protein}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Box
-        className='pagination-container'
-        sx={{ my: '1.6rem', display: 'flex', justifyContent: 'flex-end' }}
+    <Box sx={{ bgcolor: '#ffffff', borderRadius: '.8rem' }}>
+      <Stack
+        className='filter-container'
+        sx={{
+          width: '100%',
+          borderTopLeftRadius: '.8rem',
+          borderTopRightRadius: '.8rem',
+          padding: '3rem 2rem '
+        }}
+        direction={'row'}
+        justifyContent='space-between'
+        alignItems={'center'}
       >
-        <Pagination count={10} variant='outlined' color='primary' />
+        <Box
+          sx={{
+            height: '40px',
+            width: '40%',
+            padding: '1.2rem ',
+            border: '1px solid rgba(145, 158, 171, 0.32)',
+            borderRadius: '.8rem',
+            display: 'flex',
+            alignItems: 'center'
+          }}
+        >
+          <InputBase
+            placeholder='Search  here ....'
+            inputProps={{
+              style: { fontFamily: 'Public Sans', color: '#777' },
+              endAdornment: (
+                <InputAdornment position='end'>
+                  <IconButton>
+                    <SearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
+          />
+        </Box>
+        <Stack direction={'row'} alignItems='center'>
+          <Button
+            variant='contained'
+            sx={{
+              bgcolor: 'primary',
+              fontWeight: 700,
+              border: 0,
+              '&:hover': {
+                bgcolor: 'primary.main',
+                color: '#fff'
+              }
+            }}
+          >
+            Add Boat Owner
+          </Button>
+          <Box
+            className='icon-container'
+            sx={{
+              bgcolor: 'primary.light',
+              marginLeft: '1.6rem'
+            }}
+          >
+            <Sort fontSize='large' color='primary' />
+          </Box>
+        </Stack>
+      </Stack>
+      <Box sx={{ padding: '2rem 0' }}>
+        <TableContainer
+          component={Paper}
+          sx={{
+            border: 'none',
+            borderRadius: 0
+          }}
+        >
+          <Table
+            sx={{
+              minWidth: 650
+            }}
+            aria-label='simple table'
+          >
+            <TableHead sx={{ bgcolor: '#111936' }}>
+              <TableRow>
+                <TableHeadCell>OwnerID</TableHeadCell>
+                <TableHeadCell>Name</TableHeadCell>
+                <TableHeadCell>Date of Registartion</TableHeadCell>
+                <TableHeadCell>OwnerType&nbsp;(sailboat/motorboat)</TableHeadCell>
+                <TableHeadCell>Active/Inactive</TableHeadCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component='th' scope='row'>
+                    {row.name}
+                  </TableCell>
+                  <TableCell>Name here</TableCell>
+                  <TableCell>{row.calories}</TableCell>
+                  <TableCell>{row.fat}</TableCell>
+                  <TableCell>{row.carbs}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                  colSpan={3}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={3}
+                  SelectProps={{
+                    inputProps: {
+                      'aria-label': 'rows per page'
+                    },
+                    native: true
+                  }}
+                  // onPageChange={handleChangePage}
+                  // onRowsPerPageChange={handleChangeRowsPerPage}
+                  // ActionsComponent={TablePaginationActions}
+                  sx={{ my: '2rem', width: '100%', display: 'flex', justifyContent: 'flex-start' }}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </TableContainer>
+        {/* <Box
+          className='pagination-container'
+          sx={{ my: '1.6rem', display: 'flex', justifyContent: 'flex-end' }}
+        >
+          <Pagination count={10} variant='outlined' color='primary' />
+        </Box> */}
       </Box>
     </Box>
   );

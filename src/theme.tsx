@@ -22,6 +22,15 @@ export const theme = createTheme({
     },
     success: {
       main: '#36B37E'
+    },
+    overrides: {
+      MuiTableRow: {
+        root: {
+          '&:last-child td': {
+            borderBottom: 0
+          }
+        }
+      }
     }
   },
   typography: {

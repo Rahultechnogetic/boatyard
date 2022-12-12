@@ -10,7 +10,7 @@ import SidebarMenus from '../sidebar/SidebarMenus';
 import Navbar from '../navbar/Navbar';
 import './drawer.scss';
 
-export const drawerWidth = 200;
+export const drawerWidth = 250;
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -93,12 +93,13 @@ const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
           component='main'
           sx={{
             flexGrow: 1,
-            p: 3,
+            p: 2,
             transition: 'margin 200ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
             borderTopLeftRadius: '16px',
             borderTopRightRadius: '16px',
             margin: '2rem',
-            minHeight: '100vh'
+            minHeight: '100vh',
+            boxShadow: 0
           }}
           className='main'
         >
