@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { drawerWidth } from '../drawer-sidebar/Drawer_Sidebar';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled } from '@mui/material/styles';
+import { makeStyles } from '@material-ui/core';
 
 interface NavbarProps {
   open: boolean;
@@ -37,6 +38,14 @@ const AppBar = styled(MuiAppBar, {
     })
   })
 }));
+
+// style the  svg icons
+const useStyles = makeStyles((theme) => {
+  {
+    theme.palette.primary.main;
+    30;
+  }
+});
 
 const Navbar = ({ open, setOpen }: NavbarProps) => {
   const [openProfile, SetOpenProfile] = useState(false);

@@ -1,5 +1,16 @@
+//sidebar start here
 .sidebar-container {
-  svg {
-    color: #737373 !important;
+  // background-color: red;
+  height: 100%;
+
+  li {
+    margin: 3rem 0;
+    // background: green !important;
+    svg {
+      font-size: 3rem !important;
+      color: #737373 !important;
+    }
   }
 }
+
+//sidebar ends here

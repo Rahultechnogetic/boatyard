@@ -1,23 +1,29 @@
 import React from 'react';
 import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import InfoIcon from '@mui/icons-material/Info';
-import SailingIcon from '@mui/icons-material/Sailing';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import ConstructionIcon from '@mui/icons-material/Construction';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import SailingOutlinedIcon from '@mui/icons-material/SailingOutlined';
+import { ApartmentOutlined } from '@material-ui/icons';
+import { ConstructionOutlined } from '@mui/icons-material';
+import './sidebar.scss';
+import styled from '@emotion/styled';
 
 // props types
 interface SidebarProps {
   open: boolean;
 }
 
+const ListItemBtn = styled(ListItemButton)(() => ({
+  borderRadius: '.8rem'
+}));
+
 const SidebarMenus = (props: SidebarProps) => {
   const { open } = props;
   return (
-    <List className='sidebar-container'>
+    <List className='sidebar-container' sx={{ padding: '2rem' }}>
       <ListItem disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
+        <ListItemBtn
           sx={{
             minHeight: 48,
             justifyContent: open ? 'initial' : 'center',
@@ -31,13 +37,13 @@ const SidebarMenus = (props: SidebarProps) => {
               justifyContent: 'center'
             }}
           >
-            <AdminPanelSettingsIcon sx={{ color: 'primary.dark' }} />
+            <AdminPanelSettingsOutlinedIcon sx={{ color: 'primary.dark' }} />
           </ListItemIcon>
           <ListItemText primary={'OwnerManagement'} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
+        </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
+        <ListItemBtn
           sx={{
             minHeight: 48,
             justifyContent: open ? 'initial' : 'center',
@@ -51,13 +57,13 @@ const SidebarMenus = (props: SidebarProps) => {
               justifyContent: 'center'
             }}
           >
-            <InfoIcon />
+            <InfoOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary={'Information'} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
+        </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
+        <ListItemBtn
           sx={{
             minHeight: 48,
             justifyContent: open ? 'initial' : 'center',
@@ -71,13 +77,13 @@ const SidebarMenus = (props: SidebarProps) => {
               justifyContent: 'center'
             }}
           >
-            <SailingIcon />
+            <SailingOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary={'Services'} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
+        </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
+        <ListItemBtn
           sx={{
             minHeight: 48,
             justifyContent: open ? 'initial' : 'center',
@@ -91,13 +97,13 @@ const SidebarMenus = (props: SidebarProps) => {
               justifyContent: 'center'
             }}
           >
-            <ApartmentIcon />
+            <ApartmentOutlined />
           </ListItemIcon>
           <ListItemText primary={'Service Company'} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
+        </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
+        <ListItemBtn
           sx={{
             minHeight: 48,
             justifyContent: open ? 'initial' : 'center',
@@ -111,10 +117,10 @@ const SidebarMenus = (props: SidebarProps) => {
               justifyContent: 'center'
             }}
           >
-            <ConstructionIcon />
+            <ConstructionOutlined />
           </ListItemIcon>
           <ListItemText primary={'Equipment'} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
+        </ListItemBtn>
       </ListItem>
     </List>
   );

@@ -1,12 +1,5 @@
-// color palletes used in whole project
-$primary: '#1E88E5';
-$primary-light: '#E3F2FD';
-$secondary: '#673AB7';
-$secondary-light: '#EDE7F6';
-$error: '#FF5630';
-$warning: '#FFAB00';
-$info: '#00B8D9';
-$success: '#36B37E';
+// color variants
+@import 'themes-vars.module.scss';
 
 :root {
   -webkit-font-smoothing: antialiased;

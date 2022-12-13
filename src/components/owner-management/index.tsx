@@ -6,22 +6,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {
-  Box,
-  Button,
-  Stack,
-  TableFooter,
-  TablePagination,
-  TextField,
-  Typography
-} from '@mui/material';
-import { styled, alpha } from '@mui/material/styles';
+import { Box, Button, Stack, TableFooter, TablePagination } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Pagination from '@mui/material/Pagination';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import { Sort } from '@material-ui/icons';
+import Modal from '../modal/Modal';
+import { useState } from 'react';
+import AddOwner from './AddOwner';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
   return { name, calories, fat, carbs, protein };
@@ -45,6 +39,7 @@ const TableHeadCell = styled(TableCell)(() => ({
 }));
 const OwnerManagement = () => {
   // const [page, setPage] = React.useState(0);
+  const [openModal, setOpenModal] = useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   return (
@@ -98,6 +93,7 @@ const OwnerManagement = () => {
                 color: '#fff'
               }
             }}
+            onClick={() => setOpenModal(true)}
           >
             Add Boat Owner
           </Button>
@@ -112,7 +108,7 @@ const OwnerManagement = () => {
           </Box>
         </Stack>
       </Stack>
-      <Box sx={{ padding: '2rem 0' }}>
+      <Box>
         <TableContainer
           component={Paper}
           sx={{
@@ -148,36 +144,41 @@ const OwnerManagement = () => {
                 </TableRow>
               ))}
             </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                  colSpan={3}
-                  count={rows.length}
-                  rowsPerPage={rowsPerPage}
-                  page={3}
-                  SelectProps={{
-                    inputProps: {
-                      'aria-label': 'rows per page'
-                    },
-                    native: true
-                  }}
-                  // onPageChange={handleChangePage}
-                  // onRowsPerPageChange={handleChangeRowsPerPage}
-                  // ActionsComponent={TablePaginationActions}
-                  sx={{ my: '2rem', width: '100%', display: 'flex', justifyContent: 'flex-start' }}
-                />
-              </TableRow>
+            <TableFooter
+              sx={{
+                width: '100% !important'
+              }}
+            >
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                colSpan={3}
+                count={rows.length}
+                rowsPerPage={rowsPerPage}
+                page={3}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page'
+                  },
+                  native: true
+                }}
+                // onPageChange={handleChangePage}
+                // onRowsPerPageChange={handleChangeRowsPerPage}
+                // ActionsComponent={TablePaginationActions}
+                sx={{
+                  my: '2rem',
+                  width: '100% !important',
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  border: 'none'
+                }}
+              />
             </TableFooter>
           </Table>
         </TableContainer>
-        {/* <Box
-          className='pagination-container'
-          sx={{ my: '1.6rem', display: 'flex', justifyContent: 'flex-end' }}
-        >
-          <Pagination count={10} variant='outlined' color='primary' />
-        </Box> */}
       </Box>
+      <Modal openPopup={openModal} setOpenPopup={setOpenModal} title={'Add Admin'}>
+        <AddOwner />
+      </Modal>
     </Box>
   );
 };
