@@ -65,7 +65,6 @@ export default function componentStyleOverrides(theme: any) {
       styleOverrides: {
         root: {
           background: bgColor,
-          fontSize: '1.6rem',
           borderRadius: `${theme?.customization?.borderRadius}px`,
           '& .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.colors?.grey400
@@ -80,7 +79,7 @@ export default function componentStyleOverrides(theme: any) {
         input: {
           fontWeight: 500,
           background: bgColor,
-          padding: '15.5px 14px',
+          padding: '1.2rem',
           borderRadius: `${theme?.customization?.borderRadius}px`,
           '&.MuiInputBase-inputSizeSmall': {
             padding: '10px 14px',

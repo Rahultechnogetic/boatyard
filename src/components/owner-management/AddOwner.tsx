@@ -4,16 +4,14 @@ import {
   Grid,
   OutlinedInput,
   FormControl,
-  InputLabel,
   Select,
   MenuItem,
-  TextareaAutosize,
-  TextField
+  RadioGroup,
+  FormControlLabel,
+  Radio
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core';
-// material-ui
-import { useTheme } from '@mui/material/styles';
-import { Textarea } from '@mui/joy';
+import { InputLabel, GridItem } from '../../styled/components/ownerManagementStyled';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,14 +38,13 @@ const useStyles = makeStyles((theme) => ({
 
 const AddOwner = () => {
   const classes = useStyles();
-  const theme = useTheme();
   return (
     <Box className={classes.root}>
       <form>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-          <Grid item xs={6}>
-            <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-              <InputLabel htmlFor='outlined-adornment-email-login'>OwnerID</InputLabel>
+          <GridItem item xs={6}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>OwnerId:</InputLabel>
               <OutlinedInput
                 id='owner-id'
                 type='text'
@@ -55,14 +52,14 @@ const AddOwner = () => {
                 name='owner-id'
                 onBlur={() => ''}
                 onChange={() => ''}
-                label='OwnerID'
                 inputProps={{}}
+                placeholder={'Owner Id'}
               />
             </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-              <InputLabel htmlFor='outlined-adornment-email-login'>Name</InputLabel>
+          </GridItem>
+          <GridItem item xs={6}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Name:</InputLabel>
               <OutlinedInput
                 id='owner-name'
                 type='text'
@@ -70,14 +67,14 @@ const AddOwner = () => {
                 name='owner-name'
                 onBlur={() => ''}
                 onChange={() => ''}
-                label='Name'
                 inputProps={{}}
+                placeholder='Owner name'
               />
             </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-              <InputLabel htmlFor='outlined-adornment-email-login'>Date of Registration</InputLabel>
+          </GridItem>
+          <GridItem item xs={6}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Date of Registration:</InputLabel>
               <OutlinedInput
                 id='date-of-registration'
                 type='date'
@@ -85,73 +82,83 @@ const AddOwner = () => {
                 name='date-of-registration'
                 onBlur={() => ''}
                 onChange={() => ''}
-                label='Date of Registration'
                 inputProps={{}}
               />
             </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-              <InputLabel htmlFor='outlined-adornment-email-login'>Type of Owner</InputLabel>
+          </GridItem>
+          <GridItem item xs={6}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Type of Owner:</InputLabel>
               <Select
                 labelId='Type of Owner'
                 id='Type of Onwner'
                 value={'select boat owner type'}
-                label='Age'
                 onChange={() => ''}
               >
                 <MenuItem value={10}>Sailboat</MenuItem>
                 <MenuItem value={20}>Motorboat</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-            <InputLabel htmlFor='outlined-adornment-email-login'>Address</InputLabel>
-            <OutlinedInput
-              id='Address'
-              type='text'
-              value={''}
-              multiline={true}
-              minRows={4}
-              name='Address'
-              onBlur={() => ''}
-              onChange={() => ''}
-              label='Address'
-              inputProps={{}}
-            />
-          </FormControl>
-        </Grid>
-        <Grid item xs={12}>
-          <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-            <InputLabel htmlFor='outlined-adornment-email-login'>Contact Detail</InputLabel>
-            <OutlinedInput
-              id='Contact Detail'
-              type='text'
-              value={''}
-              name='Contact Detail'
-              onBlur={() => ''}
-              onChange={() => ''}
-              label='Contact Detail'
-              inputProps={{}}
-            />
-          </FormControl>
-        </Grid>
-        <Grid item xs={12}>
-          <FormControl fullWidth error={false} sx={{ ...theme?.typography?.customInput }}>
-            <InputLabel htmlFor='outlined-adornment-email-login'>Images</InputLabel>
-            <OutlinedInput
-              id='Images'
-              type='file'
-              value={''}
-              name='Images'
-              onBlur={() => ''}
-              onChange={() => ''}
-              label='Images'
-              inputProps={{}}
-            />
-          </FormControl>
+          </GridItem>
+          <GridItem item xs={12}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Address:</InputLabel>
+              <OutlinedInput
+                id='Address'
+                type='text'
+                value={''}
+                multiline={true}
+                minRows={4}
+                name='Address'
+                onBlur={() => ''}
+                onChange={() => ''}
+                inputProps={{}}
+                placeholder='Address here'
+              />
+            </FormControl>
+          </GridItem>
+          <GridItem item xs={12}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Contact Detail:</InputLabel>
+              <OutlinedInput
+                id='Contact Detail'
+                type='text'
+                value={''}
+                name='Contact Detail'
+                onBlur={() => ''}
+                onChange={() => ''}
+                inputProps={{}}
+                placeholder='Contact Details'
+              />
+            </FormControl>
+          </GridItem>
+          <GridItem item xs={12}>
+            <FormControl fullWidth error={false}>
+              <InputLabel>Images:</InputLabel>
+              <OutlinedInput
+                id='Images'
+                type='file'
+                value={''}
+                name='Images'
+                onBlur={() => ''}
+                onChange={() => ''}
+                inputProps={{}}
+              />
+            </FormControl>
+
+            <Box sx={{ my: '1rem' }}>
+              <InputLabel>Status:</InputLabel>
+              <RadioGroup
+                aria-labelledby='demo-radio-buttons-group-label'
+                defaultValue='Active'
+                name='radio-buttons-group'
+                sx={{ display: 'flex', flexDirection: 'row' }}
+              >
+                <FormControlLabel value='1' control={<Radio />} label='Active' />
+                <FormControlLabel value='0' control={<Radio />} label='InActive' />
+              </RadioGroup>
+            </Box>
+          </GridItem>
         </Grid>
       </form>
     </Box>

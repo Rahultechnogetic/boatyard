@@ -4,11 +4,10 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { IconButton, useMediaQuery } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { useState } from 'react';
 import SidebarMenus from '../sidebar/SidebarMenus';
 import Navbar from '../navbar/Navbar';
-import './drawer.scss';
 
 export const drawerWidth = 250;
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -69,8 +68,6 @@ interface Drawer_Sidebar_Props {
 const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  // breaking point to make slider responsive
-  const matchUpMd = useMediaQuery(theme.breakpoints.up('md'));
 
   // to close the drawer
   const handleDrawerClose = () => {
@@ -97,8 +94,9 @@ const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
             flexGrow: 1,
             p: 2,
             transition: 'margin 200ms cubic-bezier(0.4, 0, 0.6, 1) 0ms',
-            borderTopLeftRadius: '16px',
-            borderTopRightRadius: '16px',
+            // borderTopLeftRadius: '8px',
+            // borderTopRightRadius: '8px',
+            borderRadius: '1.6rem 1.6rem  0px 0px',
             margin: '2rem',
             minHeight: '100vh',
             boxShadow: 0

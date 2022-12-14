@@ -6,7 +6,6 @@ import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettin
 import SailingOutlinedIcon from '@mui/icons-material/SailingOutlined';
 import { ApartmentOutlined } from '@material-ui/icons';
 import { ConstructionOutlined } from '@mui/icons-material';
-import './sidebar.scss';
 import styled from '@emotion/styled';
 
 // props types

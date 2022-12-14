@@ -8,7 +8,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { drawerWidth } from '../drawer-sidebar/Drawer_Sidebar';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled } from '@mui/material/styles';
-import { makeStyles } from '@material-ui/core';
 
 interface NavbarProps {
   open: boolean;
@@ -39,17 +38,27 @@ const AppBar = styled(MuiAppBar, {
   })
 }));
 
-// style the  svg icons
-const useStyles = makeStyles((theme) => {
-  {
-    theme.palette.primary.main;
-    30;
-  }
-});
-
 const Navbar = ({ open, setOpen }: NavbarProps) => {
   const [openProfile, SetOpenProfile] = useState(false);
-  const [openLanguageMenu, setLanguageMenu] = useState(false);
+  const [languageMenuPosition, setLanguageMenuPosition] = useState<any>(null);
+
+  //set position of language menu popover
+  const handleLanguageMenu = (event: React.MouseEvent) => {
+    if (languageMenuPosition) {
+      return;
+    }
+    event.preventDefault();
+    setLanguageMenuPosition({
+      top: event.pageY,
+      left: event.pageX
+    });
+  };
+
+  //close language menu position
+  const handleLanguageMenuItem = () => {
+    setLanguageMenuPosition(null);
+  };
+
   return (
     <AppBar position='sticky' sx={{ padding: '0px' }} className='navigation-bar'>
       <Toolbar sx={{ padding: '0px' }}>
@@ -84,27 +93,24 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
           </Stack>
           <Stack direction='row' alignItems={'center'}>
             <Box
-              onClick={() => setLanguageMenu(!openLanguageMenu)}
               className='icon-container'
               sx={{
                 bgcolor: 'primary.light',
                 marginRight: '1.6rem',
                 position: 'relative'
               }}
+              onClick={handleLanguageMenu}
             >
               <TranslateIcon color='primary' />
               <Menu
-                open={openLanguageMenu}
-                onClose={() => SetOpenProfile(!openLanguageMenu)}
-                sx={{ marginTop: '40px', marginRight: '-10rem' }}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
+                open={!!languageMenuPosition}
+                onClose={handleLanguageMenuItem}
+                anchorReference='anchorPosition'
+                anchorPosition={languageMenuPosition}
               >
-                <MenuItem>English</MenuItem>
-                <MenuItem>German</MenuItem>
-                <MenuItem>French</MenuItem>
+                <MenuItem onClick={handleLanguageMenuItem}>English</MenuItem>
+                <MenuItem onClick={handleLanguageMenuItem}>German</MenuItem>
+                <MenuItem onClick={handleLanguageMenuItem}>French</MenuItem>
               </Menu>
             </Box>
 

@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
 interface ActionButtonProps {
   color: string;
-  children: any;
+  children: React.ReactNode;
   onClick: () => void;
 }
 
 export default function ActionButton(props: ActionButtonProps) {
-  const { color, children, onClick } = props;
+  const { children, onClick } = props;
   const classes = useStyles();
 
   return (

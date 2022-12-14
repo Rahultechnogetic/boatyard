@@ -67,7 +67,7 @@ const themeTypography = (theme: any): any => {
       marginTop: 1,
       marginBottom: 1,
       '& > label': {
-        top: 23,
+        top: -10,
         left: 0,
         color: theme.grey500,
         fontSize: '1.5rem',
