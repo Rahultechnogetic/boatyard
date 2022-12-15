@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Drawer_Sidebar from './components/drawer-sidebar/Drawer_Sidebar';
 import OwnerManagement from './components/owner-management';
 import { Routes, Route } from 'react-router-dom';
+import BoatInformation from './components/boat-information-management';
+import BoatForm from './components/boat-information-management/BoatForm';
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -18,6 +20,8 @@ const App = () => {
         <Drawer_Sidebar>
           <Routes>
             <Route path='/' element={<OwnerManagement />} />
+            <Route path='/boat-information' element={<BoatInformation />} />
+            <Route path='/boat/:id' element={<BoatForm />} />
           </Routes>
         </Drawer_Sidebar>
         {/* <Login /> */}

@@ -1,6 +1,9 @@
-import * as React from 'react';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Sort } from '@material-ui/icons';
+import { IconButton, InputAdornment, InputBase } from '@mui/material';
+import React from 'react';
+import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
+import { RoundedContainer } from '../../styled/components/common';
 import {
   Box,
   Button,
@@ -13,28 +16,20 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead
+  TableHead,
+  Paper,
+  TableRow
 } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
-import { Delete, Edit, Sort } from '@material-ui/icons';
-import Modal from '../modal/Modal';
-import { useState } from 'react';
-import AddOwner from './AddOwner';
 import {
   ActiveButton,
   InActiveButton,
   TableHeadCell
 } from '../../styled/components/ownerManagementStyled';
-import { ownerData } from './ownerstatic.data';
-import { RoundedContainer } from '../../styled/components/common';
+import { Delete, Edit } from '@material-ui/icons';
+import { ownerData } from '../owner-management/ownerstatic.data';
 
-const OwnerManagement = () => {
-  // const [page, setPage] = React.useState(0);
-  const [openModal, setOpenModal] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+const BoatInformation = () => {
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const [filterMenuPosition, setFilterMenuPosition] = useState<any>(null);
   const [data, setData] = useState(ownerData);
 
@@ -53,21 +48,8 @@ const OwnerManagement = () => {
     setFilterMenuPosition(null);
   };
 
-  // delete a record
-  const handleDelete = (ownerId: string) => {
-    const newData = [...data].filter((owner) => {
-      return owner.ownerId !== ownerId;
-    });
-    setData(newData);
-  };
-
-  //edit a owner record
-  const handleEdit = (ownerId: string): void => {
-    setOpenModal(true);
-  };
-
   return (
-    <RoundedContainer>
+    <RoundedContainer sx={{ padding: '2rem !important', margin: '2rem !important' }}>
       <Stack
         className='filter-container'
         sx={{
@@ -94,7 +76,7 @@ const OwnerManagement = () => {
           <InputBase
             placeholder='Search  here ....'
             inputProps={{
-              style: { fontFamily: 'Public Sans', color: '#777' },
+              style: { fontFamily: 'Public Sans', color: '#777', width: '100% !important' },
               endAdornment: (
                 <InputAdornment position='end'>
                   <IconButton>
@@ -117,15 +99,17 @@ const OwnerManagement = () => {
                 color: '#fff'
               }
             }}
-            onClick={() => setOpenModal(true)}
+            // onClick={() => setOpenModal(true)}
           >
-            Add Boat Owner
+            Add Boat
           </Button>
           <Box
             className='icon-container'
             sx={{
               bgcolor: 'primary.light',
-              marginLeft: '1.6rem'
+              marginLeft: '1.6rem',
+              border: 0,
+              width: '3.4rem !important'
             }}
             onClick={handleFilterMenu}
           >
@@ -183,10 +167,10 @@ const OwnerManagement = () => {
                   <TableCell>{row.dateofreg}</TableCell>
                   <TableCell>{row.active === 1 ? <ActiveButton /> : <InActiveButton />}</TableCell>
                   <TableCell sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Box onClick={() => handleEdit(row.ownerId)}>
+                    <Box>
                       <Edit color={'primary'} fontSize={'large'} />
                     </Box>
-                    <Box sx={{ margin: '0 1rem' }} onClick={() => handleDelete(row.ownerId)}>
+                    <Box sx={{ margin: '0 1rem' }}>
                       <Delete color={'error'} fontSize={'large'} />
                     </Box>
                   </TableCell>
@@ -225,11 +209,8 @@ const OwnerManagement = () => {
           </Table>
         </TableContainer>
       </Box>
-      <Modal openPopup={openModal} setOpenPopup={setOpenModal} title={'Add Admin'}>
-        <AddOwner />
-      </Modal>
     </RoundedContainer>
   );
 };
 
-export default OwnerManagement;
+export default BoatInformation;

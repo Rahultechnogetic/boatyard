@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
+import { Button, List, ListItem, ListItemButton, ListItemIcon } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
@@ -7,6 +7,7 @@ import SailingOutlinedIcon from '@mui/icons-material/SailingOutlined';
 import { ApartmentOutlined } from '@material-ui/icons';
 import { ConstructionOutlined } from '@mui/icons-material';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 // props types
 interface SidebarProps {
@@ -38,7 +39,11 @@ const SidebarMenus = (props: SidebarProps) => {
           >
             <AdminPanelSettingsOutlinedIcon sx={{ color: 'primary.dark' }} />
           </ListItemIcon>
-          <ListItemText primary={'OwnerManagement'} sx={{ opacity: open ? 1 : 0 }} />
+
+          <ListItemText
+            primary={<Link to='/'>OwnerManagerment</Link>}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
@@ -58,7 +63,11 @@ const SidebarMenus = (props: SidebarProps) => {
           >
             <InfoOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary={'Information'} sx={{ opacity: open ? 1 : 0 }} />
+
+          <ListItemText
+            primary={<Link to='/boat-information'>information</Link>}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
       <ListItem disablePadding sx={{ display: 'block' }}>
