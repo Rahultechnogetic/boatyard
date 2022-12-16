@@ -42,7 +42,7 @@ const AddOwner = () => {
     <Box className={classes.root}>
       <form>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-          <GridItem item xs={6}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>OwnerId:</InputLabel>
               <OutlinedInput
@@ -57,7 +57,7 @@ const AddOwner = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item xs={6}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Name:</InputLabel>
               <OutlinedInput
@@ -72,7 +72,7 @@ const AddOwner = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item xs={6}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Date of Registration:</InputLabel>
               <OutlinedInput
@@ -86,7 +86,7 @@ const AddOwner = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item xs={6}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Type of Owner:</InputLabel>
               <Select
@@ -100,7 +100,7 @@ const AddOwner = () => {
               </Select>
             </FormControl>
           </GridItem>
-          <GridItem item xs={12}>
+          <GridItem item lg={12} md={12} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Address:</InputLabel>
               <OutlinedInput
@@ -117,7 +117,7 @@ const AddOwner = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item xs={12}>
+          <GridItem item lg={12} md={12} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Contact Detail:</InputLabel>
               <OutlinedInput
@@ -132,7 +132,7 @@ const AddOwner = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item xs={12}>
+          <GridItem item lg={12} md={12} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Images:</InputLabel>
               <OutlinedInput

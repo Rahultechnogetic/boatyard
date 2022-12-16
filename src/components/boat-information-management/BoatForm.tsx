@@ -13,12 +13,13 @@ import {
 import { InputLabel, GridItem } from '../../styled/components/ownerManagementStyled';
 import { RoundedContainer } from '../../styled/components/common';
 import { Stack } from '@mui/system';
+import { Link } from 'react-router-dom';
 const BoatForm = () => {
   return (
     <RoundedContainer sx={{ padding: '2rem !important', margin: '.5rem !important' }}>
       <form>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 3 }}>
-          <GridItem item lg={6} sm={12}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Make&Model:</InputLabel>
               <OutlinedInput
@@ -33,7 +34,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={6} sm={12}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Depth:</InputLabel>
               <OutlinedInput
@@ -48,7 +49,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={3} md={6} sm={6} xs={12}>
+          <GridItem item lg={3} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Length:</InputLabel>
               <OutlinedInput
@@ -63,7 +64,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={3} md={6} sm={6} xs={12}>
+          <GridItem item lg={3} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Weight:</InputLabel>
               <OutlinedInput
@@ -78,7 +79,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={3} md={6} sm={6} xs={12}>
+          <GridItem item lg={3} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Registration Number:</InputLabel>
               <OutlinedInput
@@ -94,7 +95,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={3} md={6} sm={6} xs={12}>
+          <GridItem item lg={3} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Year of Manufacture:</InputLabel>
               <OutlinedInput
@@ -110,7 +111,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>BodySerialNumber:</InputLabel>
               <OutlinedInput
@@ -127,7 +128,7 @@ const BoatForm = () => {
             </FormControl>
           </GridItem>
 
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Body Material:</InputLabel>
               <OutlinedInput
@@ -142,7 +143,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Home Port:</InputLabel>
               <OutlinedInput
@@ -157,7 +158,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Mode of transport:</InputLabel>
               <RadioGroup
@@ -172,7 +173,7 @@ const BoatForm = () => {
               </RadioGroup>
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Base Treatment:</InputLabel>
               <FormGroup defaultChecked={true}>
@@ -181,7 +182,7 @@ const BoatForm = () => {
               </FormGroup>
             </FormControl>
           </GridItem>
-          <GridItem item lg={4}>
+          <GridItem item lg={3} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Accessories:</InputLabel>
               <RadioGroup
@@ -196,7 +197,7 @@ const BoatForm = () => {
             </FormControl>
           </GridItem>
 
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Kneel Material:</InputLabel>
               <OutlinedInput
@@ -211,7 +212,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Stern Lights:</InputLabel>
               <OutlinedInput
@@ -226,7 +227,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={4} md={6} sm={12}>
+          <GridItem item lg={4} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Shaft:</InputLabel>
               <OutlinedInput
@@ -241,7 +242,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={6} md={12}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Mast Information:</InputLabel>
               <OutlinedInput
@@ -258,7 +259,7 @@ const BoatForm = () => {
               />
             </FormControl>
           </GridItem>
-          <GridItem item lg={6} md={12}>
+          <GridItem item lg={6} md={6} sm={12} xs={12}>
             <FormControl fullWidth error={false}>
               <InputLabel>Others:</InputLabel>
               <OutlinedInput
@@ -286,7 +287,7 @@ const BoatForm = () => {
               color='primary'
               sx={{ letterSpacing: '.2rem', fontWeight: 700, fontSize: '1.8rem' }}
             >
-              Next Step
+              <Link to='/boat/steptwo/23234'>Next Step</Link>
             </Button>
           </Stack>
         </Grid>
