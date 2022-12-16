@@ -21,6 +21,10 @@ html {
 body {
   font-size: 1.6rem !important;
   background: #f9fafc;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 // this will be  the icon container
@@ -37,33 +41,6 @@ body {
   width: 5rem;
   height: 5rem;
 }
-
-input[type='file'] {
-  border: 0;
-  margin: 1.5rem 0;
-  overflow: hidden;
-  &::placeholder {
-    display: none;
-  }
-}
-
-input[type='date'] {
-  // border: 0;
-  // margin: 1.5rem 0;
-  // overflow: hidden;
-  background: transparent;
-  // color: white;
-  & > label {
-    display: none !important;
-  }
-  & > legend {
-    display: none !important;
-  }
-  &::placeholder {
-    display: none;
-  }
-}
-
 //sidebar start here
 .sidebar-container {
   // background-color: red;

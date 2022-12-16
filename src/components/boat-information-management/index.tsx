@@ -1,5 +1,5 @@
 import { Sort } from '@material-ui/icons';
-import { IconButton, InputAdornment, InputBase } from '@mui/material';
+import { Avatar, IconButton, InputAdornment, InputBase } from '@mui/material';
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
@@ -20,18 +20,27 @@ import {
   Paper,
   TableRow
 } from '@mui/material';
-import {
-  ActiveButton,
-  InActiveButton,
-  TableHeadCell
-} from '../../styled/components/ownerManagementStyled';
+import { TableHeadCell } from '../../styled/components/ownerManagementStyled';
 import { Delete, Edit } from '@material-ui/icons';
-import { ownerData } from '../owner-management/ownerstatic.data';
+import { boatInfoData } from './boatinfo.data';
+import { Link } from 'react-router-dom';
+
+interface BoatInfoDataTypes {
+  id: string;
+  make_model: string;
+  yearofmanufacture: string;
+  engineName: string;
+  horsePower: string;
+  ownerDetail: {
+    imageUrl: string;
+    name: string;
+  };
+}
 
 const BoatInformation = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [filterMenuPosition, setFilterMenuPosition] = useState<any>(null);
-  const [data, setData] = useState(ownerData);
+  const [data, setData] = useState<BoatInfoDataTypes[]>(boatInfoData);
 
   const handleFilterMenu = (event: React.MouseEvent) => {
     if (filterMenuPosition) {
@@ -46,6 +55,14 @@ const BoatInformation = () => {
 
   const handleFilterMenuItem = () => {
     setFilterMenuPosition(null);
+  };
+
+  // delete a boat record
+  const handleDelete = (boatId: string) => {
+    const newData = [...data].filter((boat) => {
+      return boat.id !== boatId;
+    });
+    setData(newData);
   };
 
   return (
@@ -101,7 +118,7 @@ const BoatInformation = () => {
             }}
             // onClick={() => setOpenModal(true)}
           >
-            Add Boat
+            <Link to='/boat/123'>Add Boat</Link>
           </Button>
           <Box
             className='icon-container'
@@ -132,7 +149,8 @@ const BoatInformation = () => {
           component={Paper}
           sx={{
             border: 'none',
-            borderRadius: 0
+            borderRadius: 0,
+            overflow: 'auto'
           }}
         >
           <Table
@@ -144,33 +162,35 @@ const BoatInformation = () => {
             <TableHead sx={{ bgcolor: '#111936' }}>
               <TableRow>
                 {/* <TableHeadCell>Profile</TableHeadCell> */}
-                <TableHeadCell align='left'>OwnerID</TableHeadCell>
-                <TableHeadCell align='left'>Name</TableHeadCell>
-                <TableHeadCell>OwnerType</TableHeadCell>
-                <TableHeadCell>Date of Registartion</TableHeadCell>
-                <TableHeadCell>Status</TableHeadCell>
+                <TableHeadCell align='left'>Make&Model</TableHeadCell>
+                <TableHeadCell>Year</TableHeadCell>
+                <TableHeadCell>Engine</TableHeadCell>
+                <TableHeadCell>Horse Power</TableHeadCell>
+                <TableHeadCell>Owner</TableHeadCell>
                 <TableHeadCell>Edit / Delete</TableHeadCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((row) => (
-                <TableRow key={row.name}>
+                <TableRow key={row.make_model}>
                   {/* <TableCell component='th' scope='row'>
                     {row.name}
                   </TableCell> */}
                   {/* <TableCell>
                     <Avatar src={row.avatarUrl} />
                   </TableCell> */}
-                  <TableCell align='left'>{row.ownerId}</TableCell>
-                  <TableCell align='left'>{row.name}</TableCell>
-                  <TableCell>{row.ownertype}</TableCell>
-                  <TableCell>{row.dateofreg}</TableCell>
-                  <TableCell>{row.active === 1 ? <ActiveButton /> : <InActiveButton />}</TableCell>
+                  <TableCell align='left'>{row.make_model}</TableCell>
+                  <TableCell align='left'>{row.yearofmanufacture}</TableCell>
+                  <TableCell>{row.engineName}</TableCell>
+                  <TableCell>{row.horsePower}</TableCell>
+                  <TableCell>{row.ownerDetail.name}</TableCell>
                   <TableCell sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Box>
-                      <Edit color={'primary'} fontSize={'large'} />
+                      <Link to='/boat/12323'>
+                        <Edit color={'primary'} fontSize={'large'} />
+                      </Link>
                     </Box>
-                    <Box sx={{ margin: '0 1rem' }}>
+                    <Box sx={{ margin: '0 1rem' }} onClick={() => handleDelete(row.id)}>
                       <Delete color={'error'} fontSize={'large'} />
                     </Box>
                   </TableCell>

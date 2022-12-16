@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { IconButton } from '@mui/material';
+import { IconButton, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import SidebarMenus from '../sidebar/SidebarMenus';
 import Navbar from '../navbar/Navbar';
@@ -68,6 +68,7 @@ interface Drawer_Sidebar_Props {
 const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
 
   // to close the drawer
   const handleDrawerClose = () => {
@@ -78,7 +79,7 @@ const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
     <>
       <Navbar open={open} setOpen={setOpen} />
       <Box sx={{ background: '#fff', display: { xs: 'block', md: 'none', lg: 'flex' } }}>
-        <Drawer variant='permanent' open={open}>
+        <Drawer variant={isMdUp ? 'permanent' : 'temporary'} open={open}>
           <DrawerHeader>
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
