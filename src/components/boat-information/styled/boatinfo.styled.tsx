@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography, Stack } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const Image = styled('img')({

@@ -173,16 +173,18 @@ const BoatInformation = () => {
             <TableBody>
               {data.map((row) => (
                 <TableRow key={row.make_model}>
-                  {/* <TableCell component='th' scope='row'>
-                    {row.name}
-                  </TableCell> */}
-                  {/* <TableCell>
-                    <Avatar src={row.avatarUrl} />
-                  </TableCell> */}
-                  <TableCell align='left'>{row.make_model}</TableCell>
-                  <TableCell align='left'>{row.yearofmanufacture}</TableCell>
-                  <TableCell>{row.engineName}</TableCell>
-                  <TableCell>{row.horsePower}</TableCell>
+                  <TableCell align='left'>
+                    <Link to='/boat/info/23434'>{row.make_model}</Link>
+                  </TableCell>
+                  <TableCell align='left'>
+                    <Link to='/boat/info/23434'>{row.yearofmanufacture}</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Link to='/boat/info/23434'>{row.engineName}</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Link to='/boat/info/23434'>{row.horsePower}</Link>
+                  </TableCell>
                   <TableCell>{row.ownerDetail.name}</TableCell>
                   <TableCell sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Box>

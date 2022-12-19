@@ -1,5 +1,5 @@
 // color variants
-@import 'themes-vars.module.scss';
+@import '_themes-vars.module.scss';
 
 :root {
   -webkit-font-smoothing: antialiased;
@@ -25,6 +25,11 @@ body {
     text-decoration: none;
     color: #fff;
   }
+  table {
+    a {
+      color: #616161;
+    }
+  }
 }
 
 // this will be  the icon container
@@ -41,29 +46,24 @@ body {
   width: 5rem;
   height: 5rem;
 }
+
 //sidebar start here
 .sidebar-container {
   // background-color: red;
   height: 100%;
-
-  li {
-    margin: 3rem 0;
-    // background: green !important;
-    svg {
-      font-size: 3rem !important;
-      color: #737373 !important;
+  .menu-item {
+    color: #737373 !important;
+    display: block;
+    margin: 2rem 0;
+    &:hover {
+      background: transparent;
     }
   }
 }
-
 //sidebar ends heres
 
-// drawer start here
+//main starts here
 .main {
-  /* From https://css.glass */
-  /* From https://css.glass */
-  /* From https://css.glass */
-  /* From https://css.glass */
   background: rgba(227, 242, 253, 0.9);
   border-radius: 16px;
   // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -85,4 +85,4 @@ body {
   }
 }
 
-//drawer ends here
+// main ends here
