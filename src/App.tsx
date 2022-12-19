@@ -10,6 +10,7 @@ import BoatInformation from './components/boat-information';
 import BoatForm from './components/boat-information/BoatForm';
 import EngineForm from './components/boat-information/EngineForm';
 import BoatDetailedInfo from './components/boat-information/BoatDetailedInfo';
+import ServicesManagement from './components/services-management';
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -26,9 +27,9 @@ const App = () => {
             <Route path='/boat/:id' element={<BoatForm />} />
             <Route path='/boat/steptwo/:id' element={<EngineForm />} />
             <Route path='/boat/info/:id' element={<BoatDetailedInfo />} />
+            <Route path='/services' element={<ServicesManagement />} />
           </Routes>
         </Drawer_Sidebar>
-        {/* <Login /> */}
       </Box>
     </ThemeProvider>
   );

@@ -84,7 +84,7 @@ const SidebarMenus = (props: SidebarProps) => {
           <ListItemText primary={'Services'} sx={{ opacity: open ? 1 : 0 }} />
         </ListItemBtn>
       </ListItem>
-      <ListItem disablePadding button component={Link} to='/service' className='menu-item'>
+      <ListItem disablePadding button component={Link} to='/services' className='menu-item'>
         <ListItemBtn
           sx={{
             minHeight: 48,
