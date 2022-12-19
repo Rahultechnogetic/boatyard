@@ -76,6 +76,7 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
                 color='secondary'
                 fontWeight={700}
                 letterSpacing={'.2rem'}
+                variant={'h3'}
               >
                 BOATYARD
               </Typography>

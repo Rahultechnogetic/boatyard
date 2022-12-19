@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import BoatInformation from './components/boat-information-management';
 import BoatForm from './components/boat-information-management/BoatForm';
 import EngineForm from './components/boat-information-management/EngineForm';
+import BoatDetailedInfo from './components/boat-information-management/BoatDetailedInfo';
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/boat-information' element={<BoatInformation />} />
             <Route path='/boat/:id' element={<BoatForm />} />
             <Route path='/boat/steptwo/:id' element={<EngineForm />} />
+            <Route path='/boat/info/:id' element={<BoatDetailedInfo />} />
           </Routes>
         </Drawer_Sidebar>
         {/* <Login /> */}

@@ -66,7 +66,7 @@ const BoatInformation = () => {
   };
 
   return (
-    <RoundedContainer sx={{ padding: '2rem !important', margin: '2rem !important' }}>
+    <RoundedContainer sx={{ margin: '2rem !important' }}>
       <Stack
         className='filter-container'
         sx={{
