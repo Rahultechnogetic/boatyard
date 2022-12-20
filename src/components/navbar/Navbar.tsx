@@ -60,7 +60,7 @@ const Navbar = ({ open, setOpen }: NavbarProps) => {
   };
 
   return (
-    <AppBar position='sticky' sx={{ padding: '0px' }} className='navigation-bar'>
+    <AppBar position='sticky' sx={{ padding: '1rem 0' }} className='navigation-bar'>
       <Toolbar sx={{ padding: '0px' }}>
         <Stack
           direction={'row'}

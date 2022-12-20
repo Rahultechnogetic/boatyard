@@ -78,7 +78,7 @@ const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
   return (
     <>
       <Navbar open={open} setOpen={setOpen} />
-      <Box sx={{ background: '#fff', display: { xs: 'block', md: 'none', lg: 'flex' } }}>
+      <Box sx={{ background: '#fff', display: { xs: 'block', lg: 'flex' } }}>
         <Drawer variant={isMdUp ? 'permanent' : 'temporary'} open={open}>
           <DrawerHeader>
             <IconButton onClick={handleDrawerClose}>
@@ -98,9 +98,9 @@ const Drawer_Sidebar = (props: Drawer_Sidebar_Props) => {
             // borderTopLeftRadius: '8px',
             // borderTopRightRadius: '8px',
             borderRadius: '1.6rem 1.6rem  0px 0px',
-            margin: '2rem',
             minHeight: '100vh',
-            boxShadow: 0
+            boxShadow: 0,
+            margin: ' 0 2rem 0 0 '
           }}
           className='main'
         >

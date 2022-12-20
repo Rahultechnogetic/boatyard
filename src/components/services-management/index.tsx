@@ -1,16 +1,10 @@
-import { Box, Grid } from '@mui/material';
 import React from 'react';
-import { RoundedContainer } from '../../styled/components/common';
-import styled from '@emotion/styled';
-import { GridItem } from '../../styled/components/ownerManagementStyled';
 import { rawData } from './services.data';
 import { useState } from 'react';
-
-const ServiceImageContainer = styled(Box)({});
-const ServiceImage = styled('img')({});
-const ServiceContent = styled(Box)({});
-const ServiceDescription = styled(Box)({});
-const GridServiceContainer = styled(GridItem)({});
+import { Box, Grid, Typography } from '@mui/material';
+import { Container } from '../../styled/components/common';
+import { CardMedia, CardContent, CardActions } from '@mui/material';
+import styled from '@emotion/styled';
 
 interface ServiceDataType {
   serviceId: string;
@@ -21,31 +15,39 @@ interface ServiceDataType {
   image: string;
 }
 
+const ServiceDescription = styled(Typography)({});
+
 const ServicesManagement = () => {
   const [data, setData] = useState<ServiceDataType[]>(rawData);
   return (
-    <RoundedContainer margin={'2rem 0 '}>
-      <Grid container spacing={2}>
-        {data.map((service: ServiceDataType) => {
-          return (
-            <GridServiceContainer key={service.serviceId} item md={6} sm={6} xs={6}>
-              <ServiceImageContainer>
-                <ServiceImage src='https://images.unsplash.com/photo-1561776620-b183b2c12e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9ja2luZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' />
-              </ServiceImageContainer>
-              <ServiceContent>
-                <ServiceDescription>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia vitae placeat
-                  tenetur enim ea rerum eius ducimus, itaque nam cumque dicta quae eveniet voluptate
-                  id fuga ipsum perspiciatis labore molestiae ipsam aspernatur at laudantium
-                  quibusdam maxime soluta. Recusandae doloremque at ea vel praesentium culpa, beatae
-                  repellendus porro soluta consequatur dignissimos!
-                </ServiceDescription>
-              </ServiceContent>
-            </GridServiceContainer>
-          );
-        })}
+    <Box>
+      <Grid>
+        <Grid item>
+          <Container sx={{ padding: '1rem' }}>
+            <Grid container>
+              <Grid item lg={4} md={4} sm={12} xs={12}>
+                <CardMedia
+                  component='img'
+                  height='194'
+                  image='https://images.unsplash.com/photo-1561776620-b183b2c12e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9ja2luZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+                  alt='Paella dish'
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Grid>
+              <Grid lg={8} md={8} sm={12} xs={12}>
+                <CardContent>
+                  <ServiceDescription variant='body2' color='text.secondary'>
+                    This impressive paella is a perfect party dish and a fun meal to cook together
+                    with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                  </ServiceDescription>
+                  <CardActions disableSpacing></CardActions>
+                </CardContent>
+              </Grid>
+            </Grid>
+          </Container>
+        </Grid>
       </Grid>
-    </RoundedContainer>
+    </Box>
   );
 };
 

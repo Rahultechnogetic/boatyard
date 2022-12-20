@@ -40,7 +40,11 @@ const SidebarMenus = (props: SidebarProps) => {
             <AdminPanelSettingsOutlinedIcon />
           </ListItemIcon>
 
-          <ListItemText primary={'OwnerManagement'} sx={{ opacity: open ? 1 : 0 }} />
+          <ListItemText
+            primary={'OwnerManagement'}
+            color={'text.primary'}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
       <ListItem button component={Link} to='/boat-information' disablePadding className='menu-item'>
@@ -61,10 +65,14 @@ const SidebarMenus = (props: SidebarProps) => {
             <InfoOutlinedIcon />
           </ListItemIcon>
 
-          <ListItemText primary={'information'} sx={{ opacity: open ? 1 : 0 }} />
+          <ListItemText
+            primary={'information'}
+            color={'text.primary'}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
-      <ListItem button component={Link} to='/service' disablePadding className='menu-item'>
+      <ListItem button component={Link} to='/services' disablePadding className='menu-item'>
         <ListItemBtn
           sx={{
             minHeight: 48,
@@ -81,7 +89,11 @@ const SidebarMenus = (props: SidebarProps) => {
           >
             <SailingOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary={'Services'} sx={{ opacity: open ? 1 : 0 }} />
+          <ListItemText
+            primary={'Services'}
+            color={'text.primary'}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
       <ListItem disablePadding button component={Link} to='/services' className='menu-item'>
@@ -101,7 +113,11 @@ const SidebarMenus = (props: SidebarProps) => {
           >
             <ApartmentOutlined fontSize='large' />
           </ListItemIcon>
-          <ListItemText primary={'Service Company'} sx={{ opacity: open ? 1 : 0 }} />
+          <ListItemText
+            primary={'Service Company'}
+            color={'text.primary'}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
       <ListItem disablePadding button component={Link} to='/service' sx={{ display: 'block' }}>
@@ -121,7 +137,11 @@ const SidebarMenus = (props: SidebarProps) => {
           >
             <ConstructionOutlined />
           </ListItemIcon>
-          <ListItemText primary={'Equipment'} sx={{ opacity: open ? 1 : 0 }} />
+          <ListItemText
+            primary={'Equipment'}
+            color={'text.primary'}
+            sx={{ opacity: open ? 1 : 0 }}
+          />
         </ListItemBtn>
       </ListItem>
     </List>
