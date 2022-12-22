@@ -16,14 +16,16 @@ interface ServiceDataType {
 }
 
 const ServiceDescription = styled(Typography)({});
+const ServiceId = styled(Typography)({});
+const ServiceName = styled(Typography)({});
 
 const ServicesManagement = () => {
   const [data, setData] = useState<ServiceDataType[]>(rawData);
   return (
     <Box>
-      <Grid>
-        <Grid item>
-          <Container sx={{ padding: '1rem' }}>
+      <Grid container spacing={2}>
+        <Grid item lg={4} md={6} xs={12}>
+          <Container>
             <Grid container>
               <Grid item lg={4} md={4} sm={12} xs={12}>
                 <CardMedia
@@ -36,7 +38,59 @@ const ServicesManagement = () => {
               </Grid>
               <Grid lg={8} md={8} sm={12} xs={12}>
                 <CardContent>
-                  <ServiceDescription variant='body2' color='text.secondary'>
+                  <ServiceName>This is the Name of the boat Service</ServiceName>
+                  <ServiceId>2347239849</ServiceId>
+                  <ServiceDescription variant='body2' color='text.primary'>
+                    {` This impressive paella is a perfect party dish and a fun meal to cook together
+                    with your guests. Add 1 cup of frozen peas along with the mussels, if you like.`
+                      .slice(0, 60)
+                      .concat('...')}
+                  </ServiceDescription>
+                  <CardActions disableSpacing></CardActions>
+                </CardContent>
+              </Grid>
+            </Grid>
+          </Container>
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <Container>
+            <Grid container>
+              <Grid item lg={4} md={4} sm={12} xs={12}>
+                <CardMedia
+                  component='img'
+                  height='194'
+                  image='https://images.unsplash.com/photo-1561776620-b183b2c12e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9ja2luZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+                  alt='Paella dish'
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Grid>
+              <Grid lg={8} md={8} sm={12} xs={12}>
+                <CardContent>
+                  <ServiceDescription variant='body2' color='text.primary'>
+                    This impressive paella is a perfect party dish and a fun meal to cook together
+                    with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                  </ServiceDescription>
+                  <CardActions disableSpacing></CardActions>
+                </CardContent>
+              </Grid>
+            </Grid>
+          </Container>
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <Container>
+            <Grid container>
+              <Grid item lg={4} md={4} sm={12} xs={12}>
+                <CardMedia
+                  component='img'
+                  height='194'
+                  image='https://images.unsplash.com/photo-1561776620-b183b2c12e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9ja2luZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
+                  alt='Paella dish'
+                  sx={{ objectFit: 'cover' }}
+                />
+              </Grid>
+              <Grid lg={8} md={8} sm={12} xs={12}>
+                <CardContent>
+                  <ServiceDescription variant='body2' color='text.primary'>
                     This impressive paella is a perfect party dish and a fun meal to cook together
                     with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
                   </ServiceDescription>
@@ -52,3 +106,9 @@ const ServicesManagement = () => {
 };
 
 export default ServicesManagement;
+
+// serviceId : '234234',
+// serviceName : 'boatWash',
+// serviceDescription : '',
+// serviceType : 'DockingService',
+// subServices : null,
